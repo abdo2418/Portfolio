@@ -1,0 +1,313 @@
+/* Start Global Variables */
+:root {
+  --black-color: #000000;
+  --white-color: #ffffff;
+  --cyan-color: cyan;
+}
+/* End Global Variables */
+/* Start Global Rules */
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+  -moz-scroll-behavior: smooth;
+  -ms-scroll-behavior: smooth;
+  -o-scroll-behavior: smooth;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+/* Small screen */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium screen */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large screen */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* Start Components  */
+/* End Components  */
+/* End Global Rules */
+/* Start Header */
+header {
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.08);
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+}
+header .container .logo img {
+  width: 150px;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  position: relative;
+}
+header .container nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  height: 80px;
+  color: white;
+}
+header .container nav .toggle {
+  font-size: 20px;
+  display: none;
+}
+@media (max-width: 767px) {
+  header .container nav .toggle {
+    display: block;
+  }
+}
+header .container nav .toggle:hover + ul {
+  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+header .container nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  header .container nav ul {
+  display: none;
+  }
+  header .container nav ul li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  header .container nav ul li:not(:last-child) {
+  border-bottom: 1px solid var(--cyan-color);
+  }
+  header .container nav ul a:hover {
+    color: var(--cyan-color);
+  }
+}
+header .container nav ul li a {
+  margin-left: 15px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  transition-duration: .3s;
+}
+header .container nav ul li:hover:not(:last-child) a {
+  color: var(--cyan-color);
+}
+@media (min-width: 768px) {
+  header .container nav ul li a.nice-shape {
+    padding: 10px;
+    border: 2px solid var(--white-color);
+    border-radius: 20% 20% 20% 20% / 50% 50% 50% 50%;
+    font-weight: bold;
+    background-image: linear-gradient(to right, var(--cyan-color) 50%, transparent 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%;
+    background-position: right bottom;
+  }
+  header .container nav ul li a.nice-shape:hover {
+    background-position: left bottom;
+  }
+}
+/* End Header */
+/* Start Landing */
+.landing {
+  height: 100vh;
+  background-image: url(../imgs/background-landing.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.landing::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: hsla(0, 0%, 0%, 0.20);
+}
+.landing .container {
+  position: relative;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .landing .container {
+    flex-direction: column;
+  }
+}
+.landing .text {
+  flex: 2;
+}
+.landing .container .text h1 .text-animate {
+  font-size: 24px;
+}
+.landing h1 .text-animate > span {
+  position: relative;
+  display: inline-block;
+  color: var(--cyan-color);
+  text-transform: uppercase;
+  white-space: nowrap;
+  width: 316px;
+  height: 24px;
+}
+.landing h1 .text-animate span::before {
+  content: "Mohamed Hamdy";
+  position: absolute;
+  border-right: 1px solid var(--cyan-color);
+  width: 235px;
+  overflow: hidden;
+  animation: words 8s linear infinite;
+}
+.landing .image-holder {
+  flex: 1;
+}
+@media (max-width: 767px) {
+  .landing .image-holder {
+    margin-top: 30px;
+  }
+}
+.landing .image-animate {
+  width: 150px;
+  height: 233px;
+  position: relative;
+}
+.landing .image-animate img {
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+}
+.landing .image-animate span {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+}
+.landing .image-animate span:first-of-type {
+  border-radius: 50%;
+  background-image: url(../imgs/python-logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: around 4s ease-in-out infinite;
+}
+.landing .image-animate span:last-of-type {
+  background-image: url(../imgs/javascript-logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: around 4s -2s ease-in-out infinite;
+}
+@keyframes around {
+  0% {
+    transform: translate(-150px, 50px) scale(0.4) rotate(0deg);
+    z-index: 4;
+  }
+  50% {
+    transform: translate(150px, -50px) scale(0.4) rotate(180deg);
+    z-index: 4;
+  }
+  50.000001% {
+    transform: translate(150px, -50px) scale(0.4) rotate(180deg);
+    z-index: 1;
+  }
+  100% {
+    transform: translate(-150px, 50px) scale(0.4) rotate(360deg);
+    z-index: 1;
+  }
+}
+/* End Landing */
+/* Start Animation */
+@keyframes words {
+  0% {
+    content: "Mohamed Hamdy";
+    border-right: 1px solid var(--cyan-color);
+    width: 0;
+  }
+  15% {
+    content: "Mohamed Hamdy";
+    border-right: 1px solid var(--cyan-color);
+    width: 235px;
+  }
+  20%,30% {
+    content: "Mohamed Hamdy";
+    border-right: 1px solid transparent;
+    width: 235px;
+  }
+  25%,35% {
+    content: "Mohamed Hamdy";
+    border-right: 1px solid var(--cyan-color);
+    width: 235px;
+  }
+  50% {
+    content: "Mohamed Hamdy";
+    border-right: 1px solid var(--cyan-color);
+    width: 0;
+  }
+  50.000001% {
+    content: "A Front-End Developer";
+    border-right: 1px solid var(--cyan-color);
+    width: 0;
+  }
+  65% {
+    content: "A Front-End Developer";
+    border-right: 1px solid var(--cyan-color);
+    width: 316px;
+  }
+  70%,80% {
+    content: "A Front-End Developer";
+    border-right: 1px solid transparent;
+    width: 316px;
+  }
+  75%,85% {
+    content: "A Front-End Developer";
+    border-right: 1px solid var(--cyan-color);
+    width: 316px;
+  }
+  100% {
+    content: "A Front-End Developer";
+    border-right: 1px solid var(--cyan-color);
+    width: 0;
+  }
+}
+/* End Animation */
